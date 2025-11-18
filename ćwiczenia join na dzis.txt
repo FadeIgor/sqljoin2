@@ -1,0 +1,10 @@
+1. Wyświetl imiona i nazwiska klientów oraz marki i modele samochodów, jakie wypożyczali, posortowane odwrotnie alfabetycznie wg nazwisk klientów.
+2. Wyświetl imiona i nazwiska klientów z Gliwic oraz imiona i nazwiska pracowników, którzy obsługiwali wypożyczenia.
+3. Wyświetl listę wszystkich wypożyczeń z datą wypożyczenia i zwrotu oraz nazwiskiem klienta posortowane od najstarszego.
+4. Wyświetl wszystkie samochody (id, marka, model, nr rejestracyjny) wraz z nazwą ich klasy, który były wypożyczone w okresie od 24 do 26 grudnia.
+5. Wyświetl wszystkie wypożyczenia samochodów marki AUDI wraz z danymi klientów (id, imię i nazwisko).
+6. Wyświetl unikalne imiona i nazwiska klientów, który którzy wypożyczyli samochody marki opel.
+7. Wyświetl klientów (id, imię i nazwisko), którzy wypożyczyli samochody o cenie katalogowej w zakresie od 300 do 500 zł za dobę wraz z nazwą marki i modelem oraz kolumną cena_katalogowa.
+8. Wyświetl imiona i nazwiska pracowników wraz z datami wypożyczeń jakie obsługiwali w okresie od 21 grudnia do 3 stycznia.
+9. Wyświetl klientów (id, imię i nazwisko) wraz z marką samochodu, posortowanych alfabetycznie po markach.
+10. Wyświetl informacje o samochodach (id, marka, model, nr rejestracyjny), które nie były jeszcze wypożyczone.

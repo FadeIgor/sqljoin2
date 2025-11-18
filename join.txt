@@ -1,0 +1,164 @@
+1.
+SELECT DISTINCT
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta,
+    samochody.marka,
+    samochody.model
+FROM klienci 
+	INNER JOIN wypozyczenia 
+    	ON klienci.id_klienta = wypozyczenia.id_klienta
+	INNER JOIN dane_wypozyczen
+ 		on dane_wypozyczen.id_wypozyczenia = wypozyczenia.id_wypozyczenia
+    INNER JOIN samochody
+    	on samochody.id_samochodu = dane_wypozyczen.id_samochodu;
+
+
+
+
+2. 
+SELECT DISTINCT
+	klienci.imie_klienta,
+    klienci.nazwisko_klienta,
+    pracownicy.imie_pracownika,
+    pracownicy.nazwisko_pracownika
+FROM klienci
+	INNER JOIN wypozyczenia
+    	ON klienci.id_klienta = wypozyczenia.id_klienta
+    INNER JOIN pracownicy
+    	ON pracownicy.id_pracownika = wypozyczenia.id_pracownika
+WHERE klienci.miasto_klienta LIKE "Gliwice";
+
+
+
+
+3.
+SELECT 
+	wypozyczenia.data_wyp,
+    wypozyczenia.data_zwr,
+    klienci.nazwisko_klienta
+FROM wypozyczenia 
+	INNER JOIN klienci
+    	on klienci.id_klienta = wypozyczenia.id_klienta;
+
+
+
+
+
+4.
+SELECT 
+	samochody.id_samochodu,
+    samochody.marka,
+    samochody.model,
+    samochody.nr_rejestracyjny,
+    klasy_samochodow.nazwa_klasy
+FROM samochody
+	INNER JOIN klasy_samochodow
+    	ON klasy_samochodow.id_klasy = samochody.id_klasy
+    INNER JOIN dane_wypozyczen
+    	ON dane_wypozyczen.id_samochodu = samochody.id_samochodu
+    INNER JOIN wypozyczenia
+    	ON wypozyczenia.id_wypozyczenia = dane_wypozyczen.id_wypozyczenia
+WHERE wypozyczenia.data_wyp BETWEEN '2022-12-24' AND '2022-12-26';
+
+
+
+
+
+5.
+SELECT 
+	samochody.marka,
+    samochody.model,
+    klienci.id_klienta,
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta
+FROM samochody
+	INNER JOIN dane_wypozyczen
+    	on dane_wypozyczen.id_samochodu = samochody.id_samochodu
+    INNER JOIN wypozyczenia
+    	on wypozyczenia.id_wypozyczenia = dane_wypozyczen.id_wypozyczenia
+    INNER JOIN klienci
+    	on klienci.id_klienta = wypozyczenia.id_klienta
+WHERE samochody.marka = "audi";
+
+
+
+
+6.
+SELECT DISTINCT
+	klienci.imie_klienta,
+    klienci.nazwisko_klienta
+FROM klienci
+	INNER JOIN wypozyczenia
+    	on wypozyczenia.id_klienta = klienci.id_klienta
+    INNER JOIN dane_wypozyczen
+    	on dane_wypozyczen.id_wypozyczenia = wypozyczenia.id_wypozyczenia
+    INNER JOIN samochody
+    	on samochody.id_samochodu = dane_wypozyczen.id_samochodu
+WHERE samochody.marka = "opel";
+
+
+
+
+
+7.
+SELECT 
+	klienci.id_klienta,
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta,
+    samochody.marka,
+    samochody.model,
+    samochody.cena_katalogowa
+FROM klienci
+	INNER JOIN wypozyczenia
+    	on klienci.id_klienta = wypozyczenia.id_klienta
+    INNER JOIN dane_wypozyczen
+    	on dane_wypozyczen.id_wypozyczenia = wypozyczenia.id_wypozyczenia
+    INNER JOIN samochody
+    	ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
+WHERE samochody.cena_katalogowa BETWEEN "300" AND "500";
+
+
+
+
+
+
+8.
+SELECT
+	pracownicy.imie_pracownika,
+    pracownicy.nazwisko_pracownika,
+    wypozyczenia.data_wyp
+FROM pracownicy
+	INNER JOIN wypozyczenia
+    	ON wypozyczenia.id_pracownika = pracownicy.id_pracownika
+WHERE wypozyczenia.data_wyp BETWEEN '2022-12-21' AND '2023-01-03';
+
+
+
+
+
+9.
+SELECT
+	klienci.id_klienta,
+    klienci.imie_klienta,
+    klienci.nazwisko_klienta,
+    samochody.marka
+FROM klienci
+	INNER JOIN wypozyczenia
+    	ON wypozyczenia.id_klienta = klienci.id_klienta
+..........
+
+
+
+
+
+10.
+SELECT 
+    samochody.id_samochodu,
+    samochody.marka,
+    samochody.model,
+    samochody.nr_rejestracyjny,
+    dane_wypozyczen.id_samochodu
+FROM samochody 
+    LEFT JOIN dane_wypozyczen 
+    ON samochody.id_samochodu = dane_wypozyczen.id_samochodu
+    WHERE dane_wypozyczen.id_wypozyczenia IS NULL;
